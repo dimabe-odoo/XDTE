@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <record id="xdte_comany_form" model="ir.ui.view">
+            <field name="name">Compañia</field>
+            <field name="model">res.company</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+
+            <field name="arch" type="xml">
+                <data>
+                    <!--<xpath expr="//field[@name='name']" position="after">-->
+                    <xpath expr="//form[1]/sheet[1]/notebook[1]" position="inside">
+                        <page name="xdte_tab" string="XSolution DTE">
+                            <group name="sii_info" cols="">
+                                <field name="fecha_resolucion" placeholder="Fecha Resolución" colspan="3" style="width: 29%"/>
+                                <field name="num_resolucion" placeholder="Núm. Resolución" colspan="3" style="width: 29%"/>
+                                <field name="acteco" placeholder="Actividad Economica" colspan="3" style="width: 29%"/>
+                                <field name="giro" placeholder="Giro" colspan="8" />
+                                <field name="url_dte" placeholder="URL Portal de Facturacion" colspan="3" style="width: 29%"/>
+                                <field name="hash_dte" placeholder="Hash DTE" colspan="3" style="width: 29%"/>
+                                <field name="url_boletas" placeholder="URL para validación de Boletas Electrónicas." colspan="3" />
+                            </group>
+                        </page>
+                    </xpath>
+
+                </data>
+            </field>
+        </record>
+
+    </data>
+</odoo>
+
+
