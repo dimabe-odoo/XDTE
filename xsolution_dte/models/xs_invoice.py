@@ -28,6 +28,7 @@ class xs_invoice(models.Model):
     xml_dte = fields.Text("XML")
     ted = fields.Text("TED")
     url_pdf = fields.Text("URL PDF")
+    pdf_dte = fields.Text("PDF")
     #estado_envio = fields.Text("Estado Envío")
 
     referencias = fields.One2many(
@@ -112,7 +113,7 @@ class xs_invoice(models.Model):
         auth = requests.auth.HTTPBasicAuth(hash, 'X')
         ssl_check = False
         # Api para Generar DTE
-        apidte = '/dte/documentos/gendte?getXML=true&getPDF=false&getTED=png'
+        apidte = '/dte/documentos/gendte?getXML=true&getPDF=true&getTED=png'
         emitir = requests.post(url + '/api' + apidte, dte, auth=auth, verify=ssl_check)
         if emitir.status_code != 200:
             print('Error al Temporal: ' + emitir.json())
@@ -120,6 +121,7 @@ class xs_invoice(models.Model):
         data = emitir.json()
         self.folio_dte = data.get('folio', None)
         self.xml_dte = data.get("xml", None)
+        self.pdf_dte = data.get("pdf", None)
         self.ted = data.get("ted", None)
         fecha = data.get("fecha", None)
         total = data.get("total", None)
