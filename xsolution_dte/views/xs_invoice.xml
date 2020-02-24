@@ -39,6 +39,7 @@
 <!--                                <field name="xml_dte" readonly="1"/>-->
                                 <field name="ted" widget="image"  readonly="1"/>
                                 <field name="url_pdf" widget="url" readonly="1" text="Url de Descarga"/>
+                                <field name="xml_dte" />
 <!--                                <field name="estado_envio" readonly="1"/>-->
                             </group>
                         </page>
